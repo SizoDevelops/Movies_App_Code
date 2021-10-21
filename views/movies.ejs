@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include( "include/head.ejs") %> 
+<body class="bg-black">
+  <%- include ('include/movies_nav.ejs') %> 
+  <% function increment(p){ %>
+    <% if(p < numPages) {%>
+      <%return  p += 1 %> 
+      <% } else {%>
+        <% return numPages %> 
+        <% } %>
+   <% } %> 
+   <% function decrement(p){ %>
+    <% if(p > 1) {%> 
+      <%return  p -= 1 %> 
+      <% } else {%>
+        <% return 1 %> 
+        <% } %>
+    <% } %> 
+    <% if(numPages > 1) {%> 
+      <div id="page-change">
+        <% if(page <= 1) {%> 
+        <a class="text-center" href="<%= url + 1 %>  "  style="pointer-events: none; color: rgb(66, 65, 65);" >First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + decrement(page)%>" style="pointer-events: none; color: rgb(19, 17, 17);">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+  
+        <% }; if(page >= numPages){ %> 
+          <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+  
+          <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+    
+          <a class="text-center" href="<%= url + increment(page) %> "  style="pointer-events: none; color: rgb(19, 17, 17);">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+    
+          <a class="text-center" href="<%= url + numPages %> "  style="pointer-events: none; color: rgb(66, 65, 65);">Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+          <% }; if(page > 1 && page < numPages){%>
+  
+            <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+  
+            <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+      
+            <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+      
+            <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+            <% } %> 
+    </div>
+    <% }; %> 
+
+  <small class="text-light mx-5 text-capitalize"><%= movieName + ` (page ${page} of ${numPages})`   %> </small>
+  <%- include("include/body.ejs") %>
+
+
+  <% if(numPages > 1) {%> 
+    <div id="page-change">
+      <% if(page <= 1) {%> 
+      <a class="text-center" href="<%= url + 1 %>  "  style="pointer-events: none; color: rgb(66, 65, 65);" >First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+
+      <a class="text-center" href="<%= url + decrement(page)%>" style="pointer-events: none; color: rgb(19, 17, 17);">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+
+      <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+
+      <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+
+      <% }; if(page >= numPages){ %> 
+        <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+
+        <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + increment(page) %> "  style="pointer-events: none; color: rgb(19, 17, 17);">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + numPages %> "  style="pointer-events: none; color: rgb(66, 65, 65);">Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+        <% }; if(page > 1 && page < numPages){%>
+
+          <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+
+          <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+    
+          <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+    
+          <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+          <% } %> 
+  </div>
+  <% }; %> 
+  <%- include( "include/footer.ejs") %> 
+
+</body>
+
+</html>

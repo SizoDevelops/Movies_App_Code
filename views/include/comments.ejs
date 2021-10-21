@@ -1,0 +1,246 @@
+<style>
+    .comments{
+        margin: 50px 20px;
+        width: 50%;
+    }
+    #comments-form,  #replies-form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding:50px 20px;
+        position: relative;
+    }
+    #commment-label>input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        margin-bottom: 30px;
+        color: white;
+        text-indent: 10px;
+    }
+    #commment-label>input:focus{
+        outline: none;
+        border-bottom: 2px solid blue;
+    }
+    
+    #comments-form>.comment-buttons, #replies-form>.comment-buttons{
+        width: 200px;
+        position: absolute;
+        top: 70px;
+        right: 10px;
+        display: flex;
+        justify-content: flex-end;
+        justify-content: space-evenly;
+    }
+  .comment-buttons>button{
+    display: none;
+    cursor: pointer;
+  padding: 5px;
+  margin: 10px;
+  width: 100px;
+  border-radius: 5px;
+  border: 1px solid blue;
+  background-color: transparent;
+  color: darkcyan;
+  margin-bottom: 50px;
+    }
+    .comment-buttons>button:hover{
+        background-color: rgba(3, 71, 218, 0.1);
+    }
+
+
+    @media (max-width:  898px) {
+        .comments{
+        width: 100%;
+    } 
+    #comments-form,  #replies-form{
+        width:95%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+   
+    }
+    #user-comment, #user-reply{
+        font-size:14px;
+        color: white;
+        text-align: left;
+        margin-left: 10px;
+        width: 90%;
+    }
+    .user{
+        display: flex;
+        flex-direction: column;
+        color: white;
+        margin: 0 20px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .feedback-buttons{
+        margin: 0 30px;
+        cursor: pointer;
+    }
+    .feedback-buttons>button{
+        border: none;
+        color: rgb(192, 192, 192);
+        background-color: transparent;
+        margin: 0 10px 0 0;
+    }
+    .feedback-buttons>button:hover{
+        color: turquoise;
+    }
+    #dislike{
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .feedback-buttons>button>span{
+        font-size: 10px;
+    }
+    .feedback {
+        display: none;
+        text-align: left;
+        margin: 0 20px;
+        border-left: 3px solid gray;
+        padding-left: 10px;
+        min-height: fit-content;
+        max-height: 500px;
+        overflow-y: auto;
+        scroll-snap-align: start;
+        
+    }
+    .replies{
+        color: whitesmoke;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        scroll-behavior: smooth;   
+    }
+    #user-profile{
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+
+    .reply-buttons>button{
+        border: none;
+        color: rgb(192, 192, 192);
+        background-color: transparent;
+        margin: 0 10px;
+        font-size: 16px;
+        
+    }
+    .reply-buttons>button>span {
+        font-size: 10px;
+    }
+    #comment-time{
+        font-size: 9px;
+        color: gray;
+    }
+    .reply-form{
+        display: none;
+    }
+    #user-profile>img{
+        border-radius: 100%;
+    }
+</style>
+
+<div class="comments">
+    <div id="comment-form">
+     <h3 class="text-light">REVIEWS <span >(Coming Soon)</span></h3>
+    </div>
+
+    <div class="comment-section">
+        <% for(var i = 1; i < 6; i++) { %>
+            <div class="user">
+                <div id="user-profile">
+                    <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" alt="" width="40px" height="40px">
+                   <span id="comment-details">Fierce Inc</span>
+                   <span id="comment-time">12-Jan-2022</span>
+                </div>
+            <span id="user-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate omnis, iusto ut saepe deleniti harum, iure repellat officiis corrupti minus! Minima sunt dolorum tenetur rerum delectus illum ratione laboriosam.</span>
+                  <div class="feedback-buttons">
+               <button title="like"><i class="fa fa-check" aria-hidden="true"></i> <span>138</span></button>
+               <button id="dislike" title="dislike">&times; <span>10</span></button>
+               <button title="reply" id="reply"><i class="fa fa-reply" aria-hidden="true"></i> <span>13</span></button>
+            </div>
+            <div class="feedback animate__animated animate__slow" id="<%= "feedback" + i %> ">
+            <% for(var r = 0; r < 5; r++) {%>
+                <div class="replies">
+                    <div id="user-profile">
+                        <img src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" alt="" width="30px" height="30px">
+                       <span id="reply-details"> Fierce Inc</span>
+                       <span id="comment-time">12-May-2022</span>
+                    </div>
+                <span id="user-reply">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero cupiditate omnis, iusto ut saepe deleniti harum, iure repellat officiis corrupti minus! Minima sunt dolorum tenetur rerum delectus illum ratione laboriosam.</span>
+                <div class="reply-buttons">
+                    <button title="like"><i class="fa fa-check" aria-hidden="true"></i> <span>138</span></button>
+                    <button id="dislike" title="dislike">&times; <span>10</span></button>
+                    <button title="reply" id="reply"><i class="fa fa-reply" aria-hidden="true"></i></button>
+                 </div>
+                </div>
+                <% }; %>  
+            </div>
+            </div>
+        <% };%> 
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+       var showButton = document.querySelectorAll('button.show-reply, button.hide-reply')
+        var feedback = document.querySelectorAll("div.feedback")
+        var users = document.querySelectorAll("div.user")
+        var userReplies = document.querySelectorAll("div.reply-form")
+        var replies = document.querySelectorAll("div.reply-form")
+        var arr = []
+
+      
+        users.forEach(comment => {
+            arr.push(comment)
+            var show = "show-" + arr.indexOf(comment)
+            $(comment).find("span#user-comment").click(() => {
+                $(feedback[arr.indexOf(comment)]).toggle()
+            })
+            $(comment).find("button#reply").click(() =>{
+                $(replies[arr.indexOf(comment)]).toggle()
+                console.log(feedback[arr.indexOf(comment)])
+            })
+        })
+    $("#comment").on("keyup", () => {
+    if($("#comment").val() == "") {
+        $("#submit-comment ").hide()
+        $("#cancel-comment").hide()
+        
+     }
+     else {
+        $("#submit-comment").show()
+        $("#cancel-comment").show()
+
+     } 
+    })
+
+    $("#reply-input").on("keyup", () => {
+    if($("#reply-input").val() == "") {
+        $("#submit-reply ").hide()
+        $("#cancel-reply").hide()
+        
+     }
+     else {
+        $("#submit-reply").show()
+        $("#cancel-reply").show()
+
+     } 
+    })
+
+    })
+</script>
+
+
+
+
+
+<div class="d-none">
+  
+</div>

@@ -3,7 +3,5 @@
 public/seriesStyles.css
 # DotEnv File
 .env
-views
-routes
 # Dependency directories
 /node_modules

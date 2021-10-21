@@ -1,0 +1,24 @@
+<div class="menu">
+    <% for(var i = 0; i < movies.length; i++) { %>
+      <div id="menu-cont">
+        <a href="<%= "/movies/m/" + movies[i].id + "/" + movies[i].title.replace("-", "").split(" ").join("-") %> " id="movie"><img src="<%= "https://image.tmdb.org/t/p/original/" + movies[i].poster_path %>" alt="">
+        <div id="rating">IMDb <%= movies[i].vote_average.toFixed(1) %></div> 
+        <div id="title"><%= movies[i].title %> </div>
+        <div class="shadow">
+          <% function date(a) {%> 
+            <%var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]%>
+            <%if(a) {%>
+              <% var mon = a.split("-") %> 
+               <% return `${mon[2]} ${months[parseInt(mon[1])-1]} ${mon[0]}` %>  
+           <% } else { %>
+             <% return  %> 
+            <% } %> 
+           <% }; %> 
+            
+             <p class="animate__animated animate__fadeIn" id="release-date"><%= movies[i].release_date ? date(movies[i].release_date) : "Not Available" %> </p>
+        </div>
+      </a>
+    </div>
+  <% };  %> 
+  
+  </div>
