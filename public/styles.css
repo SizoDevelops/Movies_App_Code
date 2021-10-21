@@ -637,6 +637,9 @@ iframe{
   }
 }
 @media (max-width: 474px) {
+  .page-text{
+    display: none;
+  }
   .menu {
     width: fit-content;
     grid-template-columns: repeat(4, auto);

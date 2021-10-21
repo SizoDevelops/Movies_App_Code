@@ -20,31 +20,31 @@
     <% if(numPages > 1) {%> 
       <div id="page-change">
         <% if(page <= 1) {%> 
-        <a class="text-center" href="<%= url + 1 %>  "  style="pointer-events: none; color: rgb(66, 65, 65);" >First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + 1 %>  "  style="pointer-events: none; color: rgb(66, 65, 65);" ><span class="page-text">First</span>  <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
   
-        <a class="text-center" href="<%= url + decrement(page)%>" style="pointer-events: none; color: rgb(19, 17, 17);">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + decrement(page)%>" style="pointer-events: none; color: rgb(19, 17, 17);"><span class="page-text">Previous</span> <i class="fa fa-backward" aria-hidden="true"></i></a>
   
-        <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + increment(page) %> "><span class="page-text">Next</span> <i class="fa fa-forward" aria-hidden="true"></i></a>
   
-        <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + numPages %> " ><span class="page-text">Last</span> <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
   
         <% }; if(page >= numPages){ %> 
-          <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
-  
-          <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+          <a class="text-center" href="<%= url + 1 %> "><span class="page-text">First</span> <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+
+          <a class="text-center" href="<%= url + decrement(page) %> "><span class="page-text">Previous</span> <i class="fa fa-backward" aria-hidden="true"></i></a>
     
-          <a class="text-center" href="<%= url + increment(page) %> "  style="pointer-events: none; color: rgb(19, 17, 17);">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+          <a class="text-center" href="<%= url + increment(page) %> "  style="pointer-events: none; color: rgb(19, 17, 17);"><span class="page-text">Next</span> <i class="fa fa-forward" aria-hidden="true"></i></a>
     
-          <a class="text-center" href="<%= url + numPages %> "  style="pointer-events: none; color: rgb(66, 65, 65);">Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+          <a class="text-center" href="<%= url + numPages %> "  style="pointer-events: none; color: rgb(66, 65, 65);"><span class="page-text">Last</span> <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
           <% }; if(page > 1 && page < numPages){%>
   
-            <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+            <a class="text-center" href="<%= url + 1 %> "><span class="page-text">First</span> <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
   
-            <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+            <a class="text-center" href="<%= url + decrement(page) %> "><span class="page-text">Previous</span> <i class="fa fa-backward" aria-hidden="true"></i></a>
       
-            <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+            <a class="text-center" href="<%= url + increment(page) %> "><span class="page-text">Next</span> <i class="fa fa-forward" aria-hidden="true"></i></a>
       
-            <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+            <a class="text-center" href="<%= url + numPages %> " ><span class="page-text">Last</span> <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
             <% } %> 
     </div>
     <% }; %> 
@@ -56,31 +56,31 @@
   <% if(numPages > 1) {%> 
     <div id="page-change">
       <% if(page <= 1) {%> 
-      <a class="text-center" href="<%= url + 1 %>  "  style="pointer-events: none; color: rgb(66, 65, 65);" >First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
-
-      <a class="text-center" href="<%= url + decrement(page)%>" style="pointer-events: none; color: rgb(19, 17, 17);">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
-
-      <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
-
-      <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + 1 %>  "  style="pointer-events: none; color: rgb(66, 65, 65);" ><span class="page-text">First</span>  <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + decrement(page)%>" style="pointer-events: none; color: rgb(19, 17, 17);"><span class="page-text">Previous</span> <i class="fa fa-backward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + increment(page) %> "><span class="page-text">Next</span> <i class="fa fa-forward" aria-hidden="true"></i></a>
+  
+        <a class="text-center" href="<%= url + numPages %> " ><span class="page-text">Last</span> <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
 
       <% }; if(page >= numPages){ %> 
-        <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + 1 %> "><span class="page-text">First</span> <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
 
-        <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + decrement(page) %> "><span class="page-text">Previous</span> <i class="fa fa-backward" aria-hidden="true"></i></a>
   
-        <a class="text-center" href="<%= url + increment(page) %> "  style="pointer-events: none; color: rgb(19, 17, 17);">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + increment(page) %> "  style="pointer-events: none; color: rgb(19, 17, 17);"><span class="page-text">Next</span> <i class="fa fa-forward" aria-hidden="true"></i></a>
   
-        <a class="text-center" href="<%= url + numPages %> "  style="pointer-events: none; color: rgb(66, 65, 65);">Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+        <a class="text-center" href="<%= url + numPages %> "  style="pointer-events: none; color: rgb(66, 65, 65);"><span class="page-text">Last</span> <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
         <% }; if(page > 1 && page < numPages){%>
 
-          <a class="text-center" href="<%= url + 1 %> ">First <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
-
-          <a class="text-center" href="<%= url + decrement(page) %> ">Previous <i class="fa fa-backward" aria-hidden="true"></i></a>
-    
-          <a class="text-center" href="<%= url + increment(page) %> ">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
-    
-          <a class="text-center" href="<%= url + numPages %> " >Last <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+          <a class="text-center" href="<%= url + 1 %> "><span class="page-text">First</span> <i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+  
+            <a class="text-center" href="<%= url + decrement(page) %> "><span class="page-text">Previous</span> <i class="fa fa-backward" aria-hidden="true"></i></a>
+      
+            <a class="text-center" href="<%= url + increment(page) %> "><span class="page-text">Next</span> <i class="fa fa-forward" aria-hidden="true"></i></a>
+      
+            <a class="text-center" href="<%= url + numPages %> " ><span class="page-text">Last</span> <i class="fa fa-fast-forward" aria-hidden="true"></i></a>
           <% } %> 
   </div>
   <% }; %> 
