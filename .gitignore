@@ -1,0 +1,13 @@
+.DS_Store
+
+# Local Netlify folder
+.netlify
+#Folders
+routes/api
+public/seriesStyles.css
+# DotEnv File
+.env
+server.js
+# Dependency directories
+node_modules
+functions

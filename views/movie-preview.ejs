@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include( "include/head.ejs") %> 
+<body class="bg-black" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
+  <%- include ('include/movies_nav.ejs') %> 
+    <div class="view-menu">
+        <div class="main">
+          <img src="<%= "https://image.tmdb.org/t/p/original/" + movie.poster_path %>"  alt="">     
+            <div class="poster">
+              <% if(movie.genres != undefined) {%> 
+              <% var r = [] %> 
+              <% movie.genres.forEach(genre => { %>
+                <% r.push(genre.name) %> 
+             <% }); %> 
+             <small class="text-light mx-3" id="gen"><%= r.join(", ")  %> </small>
+             <% }%> 
+                  
+                <ul class="details w-auto border-bottom">
+                    <li class="" title="Title" id="movieName" ><%= movie.title %> </li>
+                  
+                    <% function date(a) {%> 
+                      <%var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]%>
+                      <%var mon = a.split("-") %>
+                      <% return `${mon[2]}-${months[parseInt(mon[1])-1]}-${mon[0]}` %>  
+                     <% } %> 
+                    <li class="" ><span title="Release Date" id="date"><%=movie.release_date ? date(movie.release_date) : "Not Available" %> </span></li>
+
+                    <% function time(a) {%> 
+                       <%var h = Math.floor(a/60);%>
+                       <% var m = a%60; %> 
+                      <% return `${h}h : ${m}min` %> 
+                      <% } %> 
+
+                    <li class="" ><span title="Runtime" id="date"><%= time(parseInt(movie.runtime)) %> </span></li>
+
+                    <li class="" ><span title="Rating"><i class="fa fa-star" aria-hidden="true"></i> <%= movie.vote_average %> </span></li>
+
+                    <li class="" ><span title="Director"><%= crew[0] ? crew[0].name : "Unkown Director" %> </span></li>
+
+                </ul>
+           
+                <div class="links">
+                  <button id="myBtn" class="btn link-light d-inline popup-modal"><i class="fa fa-youtube-play" aria-hidden="true"
+                    ></i> Watch Trailer </button>    
+                  
+                  <!-- Modal -->
+                      <div class="modal" id="myModal"> 
+                        <div class="positioner" id="modal-container">
+                             <span class="close">&times;</span>
+                        <div class="hytPlayerWrap modal-content">
+                         
+                          <iframe id ="iframe"
+                            src=<%=`https://www.youtube.com/embed/${locals.data}?rel=1&enablejsapi=1&autoplay=0`  %> 
+                              frameborder="0"
+                          ></iframe>
+                      </div>
+                        </div>
+                     
+                      </div>
+               
+                    <a  href="<%= movie.imdb_id ? `https://www.imdb.com/title/${movie.imdb_id}/` : "#" %> " class="btn link-light d-inline" target="_blank"><i class="fa fa-imdb" aria-hidden="true"></i> IMDb</a>  
+                    <div class="dropdown d-inline cast-dropdown">
+                        <a class="btn link-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          Cast
+                        </a>
+                     
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink" id="cast">
+                         
+                          <% for(var i = 0; i < cast.length; i++) { %>
+                              <li><a class="dropdown-item" href="<%= "/movies/cast/" + cast[i].id + "/" + cast[i].original_name.replace(" ", "-") %>"> <% if (cast[i].profile_path != null) { %>
+                                <img src="<%= "https://image.tmdb.org/t/p/original/" + cast[i].profile_path  %>" alt="">
+                                <%} else { %>
+                                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbjFtn7g1L8x0Kt5f7bSqLWqAggTkqLbtaVw&usqp=CAU" alt="">
+                                <% } %> <%= cast[i].original_name %></a>
+                                <p style="font-size: 10px; margin-left: 10px;"> Plays: <%= cast[i].character%> </p>
+                                
+                              </li>
+                              <hr/>
+                        <% };  %> 
+                        </ul>
+                      
+                      </div>  
+                </div>
+                <div class="plot">
+                  <% if(movie.tagline != '') {%> 
+                    <p class="" ></p><span class="tagline">"<%= movie.tagline %>"</span> <%=movie.overview %> </p>
+                    <% } else  {%>
+                      <p class="" ><%=movie.overview %> </p>
+                      <% } %> 
+                </div>
+              
+            </div>     
+       
+         </div>
+
+         <h4 id="see-more">More Like This</h4>
+         <%- include("include/body.ejs")  %> 
+         <%- include( "include/footer.ejs") %>  
+    </div>
+
+
+  <script defer>
+  
+   const modal = document.getElementById("myModal");
+   const container = document.getElementById('modal-container');
+  const btn = document.getElementById("myBtn");
+  const span = document.getElementsByClassName("close")[0];
+  var title = document.getElementById("movieName").innerText
+  var date = document.getElementById("date").innerText
+  const iframe =  document.getElementById('iframe')
+  btn.addEventListener('click', async () => {
+ modal.style.display= "block"
+  })
+
+    "use strict";
+    document.addEventListener('DOMContentLoaded', function() {
+        // Activate only if not already activated
+        if (window.hideYTActivated) return;
+        // Load API
+        if (typeof YT === 'undefined') {
+            let tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            let firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+        // Activate on all players
+        let onYouTubeIframeAPIReadyCallbacks = [];
+        for (let playerWrap of document.querySelectorAll(".hytPlayerWrap")) {
+            let playerFrame = playerWrap.querySelector("iframe");
+            
+            let onPlayerStateChange = function(event) {
+                if (event.data == YT.PlayerState.ENDED) {
+                    playerWrap.classList.add("ended");
+                } else if (event.data == YT.PlayerState.PAUSED) {
+                    playerWrap.classList.add("paused");
+                } else if (event.data == YT.PlayerState.PLAYING) {
+                    playerWrap.classList.remove("ended");
+                    playerWrap.classList.remove("paused");
+                }
+            };
+            
+            let player;
+            onYouTubeIframeAPIReadyCallbacks.push(function() {
+                player = new YT.Player(playerFrame, {
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            });
+          
+            playerWrap.addEventListener("click", function() {
+                let playerState = player.getPlayerState();
+                if (playerState == YT.PlayerState.ENDED) {
+                    player.seekTo(0);
+                } else if (playerState == YT.PlayerState.PAUSED) {
+                    player.playVideo();
+                }
+            });
+            span.onclick = () => {
+      modal.style.display = "none"
+      player.seekTo(0);
+      player.pauseVideo()
+    }
+    window.onclick = (event) => {
+      if(event.target == modal) {
+        modal.style.display = "none"
+        player.pauseVideo()
+      }
+    }
+        }
+        
+        window.onYouTubeIframeAPIReady = function() {
+            for (let callback of onYouTubeIframeAPIReadyCallbacks) {
+                callback();
+            }
+        };
+        
+        window.hideYTActivated = true;
+    });
+      
+  </script>
+</body>
+</html>

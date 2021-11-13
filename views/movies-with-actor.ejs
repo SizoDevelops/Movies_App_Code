@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include( "include/head.ejs") %> 
+<body class="bg-black" id="preview">
+  <%- include ('include/movies_nav.ejs')%> 
+    <div class="view-menu ">
+        <div class="main">
+          <% if (actor_details.profile_path != null) { %>
+            <img src="<%= "https://image.tmdb.org/t/p/original/" + actor_details.profile_path  %>" alt="">
+            <%} else { %>
+              <img src="https://i.pinimg.com/originals/90/ff/c3/90ffc3cc0cfe33f1940d548a6c7602d1.jpg" alt="">
+            <% } %> 
+            <div class="poster">
+              <small class="text-light mx-3" title="Known_For" id="gen"><%= actor_details.known_for_department %> </small> 
+                <ul class="details w-auto border-bottom">
+                    <li class="" title="Name" id="movieName" ><%= actor_details.name %> </li>
+                    <% function date(a) {%> 
+                      <%var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]%>
+                      <%if(a) {%>
+                        <%var mon = a.split("-") %> 
+                        <% return `${mon[2]}-${months[parseInt(mon[1])-1]}-${mon[0]}` %>  
+                      <%} %>
+                     <% } %> 
+                     <li class="" ><span title="Born" id="date"><%=actor_details.deathday ? date(actor_details.birthday) + " to " + date(actor_details.deathday) + ` (age ${parseInt(actor_details.deathday.slice(0,4)) - parseInt(actor_details.birthday.slice(0,4))})` : actor_details.birthday ? date(actor_details.birthday) + ` (age ${new Date().getFullYear() - parseInt(actor_details.birthday.slice(0,4))} )` : "No Date Of Birth Available" %> </span></li>
+                   
+
+                    <li class="" ><span title="Popularity"><i class="fa fa-star" aria-hidden="true"></i> <%=actor_details.popularity  %> </span></li>
+
+                    <li class="" ><span title="Place Of Birth"><%= actor_details.place_of_birth ? actor_details.place_of_birth : "No Place Of Birth"%> </span></li>
+
+                </ul>
+           
+
+                <div class="plot">
+                  <h4 class="mb-3">Biography</h4>
+                  <% if(actor_details.biography) {%>
+                    <p id="read_more"><%= actor_details.biography.split(" ").slice(0, 50).join(" ") + "..." %> <a style="cursor: pointer;" id="readMore"> Read More</a> </p>
+                    <p id="show_less"><%= actor_details.biography ? actor_details.biography : `We currently do not have a bio for this person.`%><a style="cursor: pointer;" id="showLess"> Show Less</a> </p>
+                    <% } else{%>  
+                      <p> We currently do not have a biography from this person. </p>
+                      <% }; %> 
+                 
+
+                  
+                </div>
+              
+            </div>     
+       
+         </div>
+            <h4 id="see-more">Also In</h4>
+             <%- include("include/body.ejs")  %>
+             <%- include( "include/footer.ejs") %> 
+    </div>
+  <style>
+    .known_for{
+     position: relative;
+     overflow-x: auto;
+    }
+    .known_for>.menu>#menu-cont{
+      margin-left: 0;
+    }
+    #show_less{
+      display: none;
+      white-space: pre-wrap;
+    }
+  #read_more{
+    white-space: pre-wrap;
+  }
+
+    #read_more>a, #show_less>a{
+      font-size: 13px;
+      color: rgb(255, 0, 170);
+    }
+  </style>
+ <script>
+   $(document).ready(() => {
+     if($("read_more").html.length > 80) {
+      $("#readMore").find("a").show()
+     }
+
+     $("#readMore").click(() => {
+       $("#read_more").hide()
+       $("#show_less").show()
+
+     })
+     $("#showLess").click(() => {
+      $("#show_less").hide()
+       $("#read_more").show()
+       
+     })
+
+   })
+ </script>
+</body>
+</html>
