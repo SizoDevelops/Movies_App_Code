@@ -16,9 +16,9 @@ function Genres(req, res, next) {
 }
 movies_router.use(Genres);
 
-movies_router.get("/movies/:page?", (req, res) => {
+movies_router.get("/:page?", (req, res) => {
   if(!req.params.page) {
-    req.params.page = 1
+    req.params.page = 1 
   }
   fetchMovieData.getMovies(BASE_URL, API_KEY, req.params.page, "", "")
     .then(movies => {
@@ -31,7 +31,7 @@ movies_router.get("/movies/:page?", (req, res) => {
           numPages: numberOfPages,
           pageName: "Movies",
           movieName: "Movies",
-          url: req.baseUrl,
+          url: req.url.charAt(-1),
           page: parseInt(req.params.page),
         });
       } else console.log("ERROR");
@@ -43,7 +43,7 @@ movies_router.get("/movies/:page?", (req, res) => {
 });
 
 //..................................
-movies_router.get("/movies/year/:year(20[12][0-9])/:page?", (req, res) => {
+movies_router.get("/year/:year(20[12][0-9])/:page?", (req, res) => {
   if(!req.params.page) {
     req.params.page = 1
   }
@@ -59,7 +59,7 @@ movies_router.get("/movies/year/:year(20[12][0-9])/:page?", (req, res) => {
           movieName: req.params.year + " Movies",
           pageName: req.params.year,
           page: parseInt(req.params.page),
-          url: req.baseUrl,
+          url: req.url.charAt(-1),
         });
       }
        else{
@@ -75,7 +75,7 @@ movies_router.get("/movies/year/:year(20[12][0-9])/:page?", (req, res) => {
 });
 //..................................
 
-movies_router.get("/movies/genres/:genre/:page?", async (req, res) => {
+movies_router.get("/genres/:genre/:page?", async (req, res) => {
   var selected;
   if(!req.params.page) {
     req.params.page = 1
@@ -95,7 +95,7 @@ movies_router.get("/movies/genres/:genre/:page?", async (req, res) => {
           genre: filter,
           numPages: numberOfPages,
           movieName: req.params.genre ,
-          url: req.baseUrl,
+          url: req.url.charAt(-1),
           pageName:
             req.params.genre.charAt(0).toUpperCase() +
             req.params.genre.slice(1),
@@ -117,7 +117,7 @@ movies_router.get("/movies/genres/:genre/:page?", async (req, res) => {
 
 // // ........................................
 
-movies_router.get("/movies/cast/:id/:name?", (req, res) => {
+movies_router.get("/cast/:id/:name?", (req, res) => {
 
   fetchMovieData.getCast(BASE_URL, req.params.name, API_KEY)
     .then(async (data) => {
@@ -138,7 +138,7 @@ movies_router.get("/movies/cast/:id/:name?", (req, res) => {
               actor: actor,
               actor_details: actor_details,
               movies: knownFor,
-              baseUrl: req.baseUrl,
+              baseUrl: req.url.charAt(-1),
               pageName: actor_details.name
             });
            })
@@ -151,14 +151,14 @@ movies_router.get("/movies/cast/:id/:name?", (req, res) => {
 
 //..............................
 
-movies_router.get("/movies/film/trending-today", async (req, res) => {
+movies_router.get("/film/trending-today", async (req, res) => {
 
   fetchMovieData.getTrending(BASE_URL, "day", API_KEY)
     .then((data) => {
      let trending = data.results.filter(movies => movies.poster_path);
       res.render("movies_trending", {
       movies: trending,
-      url: req.baseUrl,
+      url: req.url.charAt(-1),
        genre: filter,
        movieName: "Trending Today",
       pageName: "Trending Today",
@@ -171,7 +171,7 @@ movies_router.get("/movies/film/trending-today", async (req, res) => {
 
 });
 //...............
-movies_router.get("/movies/film/top-rated/:page?", async (req, res) => {
+movies_router.get("/film/top-rated/:page?", async (req, res) => {
   if(!req.params.page) {
     req.params.page = 1
   }
@@ -185,7 +185,7 @@ movies_router.get("/movies/film/top-rated/:page?", async (req, res) => {
         numPages: numberOfPages,
         genre: filter,
         movieName: "Popular Movies",
-        url: req.baseUrl,
+        url: req.url.charAt(-1),
         page: parseInt(req.params.page),
         pageName: "Top Rated",
       });
@@ -198,7 +198,7 @@ movies_router.get("/movies/film/top-rated/:page?", async (req, res) => {
 
 });
 //................................
-movies_router.get("/movies/film/now-playing/:page?", async (req, res) => {
+movies_router.get("/film/now-playing/:page?", async (req, res) => {
   if(!req.params.page) {
     req.params.page = 1
   }
@@ -210,7 +210,7 @@ movies_router.get("/movies/film/now-playing/:page?", async (req, res) => {
         res.render("movies", {
         movies: nowPlaying,
         numPages: numberOfPages,
-        url: req.baseUrl,
+        url: req.url.charAt(-1),
         genre: filter,
         movieName: "Now Playing",
         page: parseInt(req.params.page),
@@ -227,13 +227,13 @@ movies_router.get("/movies/film/now-playing/:page?", async (req, res) => {
 });
 // // ...........................................
 
-movies_router.get("/movies/film/trending-this-week", async (req, res) => {
+movies_router.get("/film/trending-this-week", async (req, res) => {
   fetchMovieData.getTrending(BASE_URL, "week", API_KEY)
     .then((movies) => {
       let trendingThisWeek = movies.results.filter(movies => movies.poster_path);
       res.render("movies_trending", {
         movies: trendingThisWeek,
-        url: req.baseUrl,
+        url: req.url.charAt(-1),
         movieName: "Trending This Week",
         genre: filter,
         pageName: "Trending This Week",
@@ -248,7 +248,7 @@ movies_router.get("/movies/film/trending-this-week", async (req, res) => {
 
 // // .................................
 
-movies_router.get("/movies/film/search/q=:movie/:page?", async (req, res) => {
+movies_router.get("/film/search/q=:movie/:page?", async (req, res) => {
     fetchMovieData.getSearchResults(BASE_URL, API_KEY, req.params.movie, req.params.page)
     .then(movies => {
      let numberOfPages = movies.total_pages;
@@ -259,7 +259,7 @@ movies_router.get("/movies/film/search/q=:movie/:page?", async (req, res) => {
           movies: searchResults,
           genre: filter,
           movieName:  req.params.movie.replace("-", " ") + " Results",
-          url: req.baseUrl,
+          url: req.url.charAt(-1),
           numPages: numberOfPages,
           pageName: `Results For ${
             req.params.movie.charAt(0).toUpperCase() + req.params.movie.slice(1)
@@ -268,7 +268,7 @@ movies_router.get("/movies/film/search/q=:movie/:page?", async (req, res) => {
         }); 
 
       } else if (searchResults.length === 1) {
-        res.redirect(`/movies/m/${searchResults[0].id}/${searchResults[0].original_title.replace(/[\s]/g, "-")}`);
+        res.redirect(`/m/${searchResults[0].id}/${searchResults[0].original_title.replace(/[\s]/g, "-")}`);
       } else{
         res.render("error" , {genre: filter, url: req.originalUrl.slice(
           0,
@@ -288,7 +288,7 @@ movies_router.get("/movies/film/search/q=:movie/:page?", async (req, res) => {
 
 // ....................................................
 
-movies_router.get("/movies/m/:movie/:movies?", async (req, res) => {
+movies_router.get("/m/:movie/:movies?", async (req, res) => {
 
   fetchMovieData.returnMovie(BASE_URL, req.params.movie, API_KEY)
     .then(async movies => { 
@@ -308,11 +308,10 @@ movies_router.get("/movies/m/:movie/:movies?", async (req, res) => {
                         cast: cast,
                         crew: crew,
                         pageName: movie.title,
-                        baseUrl: req.baseUrl,
+                        baseUrl: req.url.charAt(-1),
                         movies: movieResults,
                         data: movie_video[0] ? movie_video[0].key : "" ,
                       });
-                    console.log(movie)
                  }
       else{
         res.render("error" , {genre: filter, url: ""

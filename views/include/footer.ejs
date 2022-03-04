@@ -1,112 +1,76 @@
 <div class="footer">
-<div ><a id="title-logo" href="/movies/">Home of Movies</a>
-    <p class=" mt-4 pb-4" style="font-size: 9px;color: darkgray;">Please keep in mind that this site is under constant development.There might be some bugs. Hit me up on social media to report bugs or encourage me.</p></div>
-
-<div class="used-resources d-flex flex-column">
-    <h4 class="text-light">LINKS</h4>
-    <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
-    <a href="https://www.maxlaumeister.com/articles/hide-related-videos-in-youtube-embeds/" target="_blank">Customize Youtube Embeds</a>
-    <a href="https://sizomhlongo.netlify.app/">My Portfolio</a>
-</div>
-<div class="socials">
-    <a href="https://twitter.com/MhlongoSizo" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-    <a href="https://www.facebook.com/sizo.mhlongo.5/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-    <a href="https://www.instagram.com/fierce_inc/?hl=en" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-    <a href="https://github.com/FierceInc" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-    <a href="https://codepen.io/Fierceincii" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
-
-</div>
-
-
-<p id="copyright">
-    <i class="fa fa-copyright" aria-hidden="true"></i> 2021 Created By <a href="https://sizomhlongo.netlify.app/">Sizo Mhlongo</a></p>
-
-
-</div>
-
-
-
-    <style>
-        #title-logo{
-            font-family: 'Pacifico', cursive;
-            font-size: 23px;
-            color: rgb(192, 188, 188);
-        }
-        .footer{
-            background-color: black;
-            border-top: 2px solid rgb(13, 13, 34);
-            width: 100%;
-            height:200px;
-            padding: 20px 0 20px 20px;
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: repeat(3, auto);
-            cursor: pointer;
-            position: relative;
-        }
-        #years{
-            font-size: 11px;
-        }
-        .socials{
-            width: 50%;
-            margin-right: 10px;
-            font-size: 18px;
-            display: inline-flex;
-            justify-content: space-evenly;
-        }
-        .movies{
-            color: rgb(134, 132, 132);
-            font-size: 12px;
-            margin-top: -80px;
-        }
-        
-        #copyright{
-            color: rgb(185, 180, 180);
-            margin-left:20px;
-            position: absolute;
-            bottom: 0;
-            font-size: 11px;
-            right: 10px;
-        }
-        @media (max-width: 836px) {
-            .socials {
-                flex-direction: column;
-            }
-            .movies{
-            margin-top: -150px;
-        }
-        
-        #copyright{
-            bottom: 20px;
-           left: 0;
-        }
-        }
-        @media (max-width: 366px){
-            #copyright{
-           bottom: -30px;
-           left: 0;
-        }
-        }
-        .footer>div>a{
-            text-decoration: none;
-            color: rgb(138, 136, 136);
-        }
-
+    <div ><a id="title-logo" href="/movies/">Home of Movies</a>
+        <p class=" mt-4" style="font-size: min(9px, 3vw);color: darkgray;">Please keep in mind that this site is under constant development.There might be some bugs. Hit me up on social media to report bugs or encourage me.</p></div>
     
-        .used-resources{
-            height: 100%;
-            margin-left: 100px;
-            margin: 0 10px;
-            font-size: 12px;
-        }
-        .used-resources>a:hover{
-            color: rgb(85, 61, 223);
-        }
-        .socials>a:hover{
-            color: rgb(85, 61, 223);
-        }
-
-        hr{
-            color: rgb(21, 21, 114);
-        }
-    </style>
+    <div class="used-resources">
+        <h4 class="text-light">LINKS</h4>
+        <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>
+        <a href="https://www.maxlaumeister.com/articles/hide-related-videos-in-youtube-embeds/" target="_blank">Customize Youtube Embeds</a>
+    </div>
+    <div class="socials">
+        <a href="https://twitter.com/SIZO_Dev" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/sizo.mhlongo.5/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    
+        <a href="https://github.com/FierceInc" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://codepen.io/Fierceincii" target="_blank"><i class="fa fa-codepen" aria-hidden="true"></i></a>
+    
+    </div>
+    
+    
+    <p id="copyright">
+        Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2021 Created By <a href="https://sizomhlongo.netlify.app/"><img src="/public/Icon Gen.png" alt="logo"> Sizo Mhlongo</a></p>
+    
+    
+    </div>
+    
+    
+    
+        <style>
+            #title-logo{
+                font-family: 'Pacifico', cursive;
+                font-size: 23px;
+                color: rgb(192, 188, 188);
+            }
+            .footer{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                padding-left: 30px ;
+                height: 400px;
+                margin-top: 40px;
+                background: #000;
+                padding-top: 10px;
+            }
+            .used-resources{
+                display: flex;
+                flex-direction: column;
+                height: 200px;
+                justify-content: space-evenly;
+            }
+            .used-resources>h4{
+                font-size: 23px;
+                font-weight: 600;
+            }
+            a{
+                color: white;
+                text-decoration: none;
+            }
+            a:hover{
+                color: #04a3ff
+            }
+            .socials {
+                width: min(400px, 100%);
+                display: inline-flex;
+                justify-content: space-evenly;
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+            #copyright{
+                font-size: 9px;
+                color: white;
+            }
+            img{
+                width: 30px;
+                margin-left: 10px;
+            }
+        </style>
