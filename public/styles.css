@@ -172,8 +172,10 @@ iframe{
 .details {
   color: white;
   line-height: 60px;
-  margin: 20px;
   font-size: 14px;
+  width: 100%;
+  padding: 5px;
+ position: relative;
 }
 .view-menu {
   height: 100%;
@@ -405,7 +407,7 @@ iframe{
   .details {
     display: inline-flex;
     justify-content: space-evenly;
-    margin-left: -60px;
+ 
     font-size: 10px;
     cursor: pointer;
     color: rgb(183, 188, 192);
@@ -478,9 +480,6 @@ iframe{
   }
   .poster {
     width: 100%;
-  }
-  .details {
-    margin-left: -50px;
   }
 }
 
@@ -637,6 +636,9 @@ iframe{
   }
 }
 @media (max-width: 474px) {
+  .page-text{
+    display: none;
+  }
   .menu {
     width: fit-content;
     grid-template-columns: repeat(4, auto);
