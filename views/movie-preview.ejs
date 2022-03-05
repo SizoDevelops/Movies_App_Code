@@ -16,7 +16,7 @@
              <% }%> 
                   
                 <ul class="details w-auto border-bottom">
-                    <li class="" title="Title" id="movieName" ><%= movie.title %> </li>
+                    <li class="" title="Title" id="movieName" ><%= movie.title.slice(0, 4) + "..." %> </li>
                   
                     <% function date(a) {%> 
                       <%var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]%>
