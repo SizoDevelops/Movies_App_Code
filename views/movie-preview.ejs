@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include( "include/head.ejs") %> 
-<body class="bg-black" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
+<body class="bg-black m-preview" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
   <%- include ('include/movies_nav.ejs') %> 
     <div class="view-menu">
         <div class="main">
