@@ -1,16 +1,13 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans Display', sans-serif;
+  font-family: "Noto Sans Display", sans-serif;
 }
 
-
 body {
-<<<<<<< HEAD
   width: min(1440px, 100vw);
   height: fit-content;
   background-color: black;
@@ -24,14 +21,9 @@ body {
   margin: auto;
 }
 nav {
-  height: 120px;
-=======
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   background-color: black;
-}
-nav {
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   border-bottom: 1px solid rgb(0, 78, 122);
 }
 
@@ -49,42 +41,42 @@ nav {
 /* The Modal (background) */
 .modal {
   display: none;
-  position: fixed; 
+  position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 60%;
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4);
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: black !important;
-  margin:15% auto;
-  width: fit-content !important; 
+  margin: 15% auto;
+  width: fit-content !important;
   padding: 20px;
   border: none;
 }
-.castProfile{
-  margin:8% auto;
+.castProfile {
+  margin: 8% auto;
   text-align: center;
   width: 400px;
   overflow-x: hidden;
 }
-.actorInfo > img{
+.actorInfo > img {
   width: 150px;
   height: 200px;
   border-radius: 4px;
   margin: 5px;
 }
-.error-page{
+.error-page {
   height: 100vh;
   display: flex;
   flex-direction: column;
- align-items: center;
+  align-items: center;
 }
-.error-page>h1{
+.error-page > h1 {
   margin-top: 140px;
   width: 90%;
   text-transform: uppercase;
@@ -101,7 +93,7 @@ nav {
   display: flex;
   flex-direction: column;
 }
-.actorDetails{ 
+.actorDetails {
   position: absolute;
   left: 160px;
   top: 20px;
@@ -110,35 +102,35 @@ nav {
   font-size: 13px;
 }
 
-.actorInfo>p{
+.actorInfo > p {
   color: white;
   margin-top: 10px;
   font-size: 15px;
 }
 
-.scrollBtn{
+.scrollBtn {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
 }
-.actorImage{
-display: flex;
-overflow-x: auto;
-scroll-snap-type: x mandatory;
-scroll-behavior: smooth;
--webkit-overflow-scrolling: touch;
+.actorImage {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* The Close Button */
-.positioner{
+.positioner {
   position: relative;
   width: 650px;
   margin: auto;
 }
 .close {
   color: rgb(255, 255, 255);
-  float:left;
+  float: left;
   font-size: 28px;
   font-weight: bold;
   position: absolute;
@@ -146,7 +138,7 @@ scroll-behavior: smooth;
   left: 10px;
 }
 
-#myBtn{
+#myBtn {
   font-size: 11px;
 }
 
@@ -157,7 +149,7 @@ scroll-behavior: smooth;
   cursor: pointer;
 }
 
-iframe{
+iframe {
   width: 650px;
   margin: auto;
   height: 400px;
@@ -168,7 +160,6 @@ iframe{
   display: inline-block;
   position: relative;
 }
-
 
 .navbar {
   color: white;
@@ -192,16 +183,12 @@ iframe{
   font-size: 14px;
   width: 100%;
   padding: 5px;
- position: relative;
+  position: relative;
 }
 .view-menu {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.83);
-<<<<<<< HEAD
   width: 100%;
-=======
-  width: 100vw;
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   overflow-x: hidden;
 }
 #search-icon {
@@ -226,7 +213,7 @@ iframe{
 }
 
 #Logo > a {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 35px;
 }
 
@@ -237,7 +224,7 @@ iframe{
 #form > input {
   padding: 5px;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 120px;
   border: 1px solid rgb(2, 23, 116);
@@ -249,14 +236,14 @@ iframe{
 #form > input:focus {
   outline: none;
 }
-#page-change{
+#page-change {
   width: 100%;
   margin: auto;
   display: inline-flex;
   justify-content: center;
   padding: 20px;
 }
-#page-change>a{
+#page-change > a {
   cursor: pointer;
   text-decoration: none;
   padding: 5px;
@@ -267,10 +254,10 @@ iframe{
   background-color: transparent;
   color: darkcyan;
 }
-#page-change>a:hover {
+#page-change > a:hover {
   background-color: rgba(3, 71, 218, 0.1);
 }
-#form{
+#form {
   margin-right: 30px;
 }
 .plot {
@@ -288,11 +275,7 @@ iframe{
 }
 
 .main {
-<<<<<<< HEAD
   width: 100%;
-=======
-  width: 100vw;
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   display: inline-flex;
   margin: auto;
   height: fit-content;
@@ -331,30 +314,30 @@ iframe{
   width: fit-content;
   grid-template-columns: repeat(8, auto);
 }
-.nav-icons{
+.nav-icons {
   color: white;
   font-size: 14px;
 }
-.nav-bar-span{
+.nav-bar-span {
   color: white;
- font-size: 17px;
+  font-size: 17px;
 }
 
 @media (max-width: 898px) {
-  .nav-bar-span{
+  .nav-bar-span {
     color: white;
-   font-size: 16px;
+    font-size: 16px;
   }
 
-  .positioner{
+  .positioner {
     position: relative;
     width: 100%;
     margin: auto;
   }
-  .nav-icons{
+  .nav-icons {
     display: none;
   }
-  .nav-bar-span{
+  .nav-bar-span {
     color: white;
     text-align: left;
     margin-left: 10px;
@@ -369,9 +352,9 @@ iframe{
     display: inline-block;
     position: absolute;
   }
-  .castProfile{
+  .castProfile {
     width: 95%;
-    margin:8% auto;
+    margin: 8% auto;
   }
   .modal {
     display: none;
@@ -380,15 +363,15 @@ iframe{
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4);
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
   }
-  iframe{
+  iframe {
     width: 90vw;
     height: 400px;
-    padding:1px;
+    padding: 1px;
   }
   .view-menu > .menu {
     display: flex;
@@ -432,7 +415,7 @@ iframe{
   .details {
     display: inline-flex;
     justify-content: space-evenly;
- 
+
     font-size: 10px;
     cursor: pointer;
     color: rgb(183, 188, 192);
@@ -466,7 +449,7 @@ iframe{
     left: 0;
     transition: ease-in 0.5s;
   }
-  #release-date{
+  #release-date {
     text-decoration: none;
   }
   .main > img {
@@ -556,10 +539,7 @@ iframe{
 }
 #movie:hover .shadow > p {
   display: block;
-<<<<<<< HEAD
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-=======
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
 }
 #movie:hover .shadow {
   position: absolute;
@@ -567,11 +547,7 @@ iframe{
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
-<<<<<<< HEAD
   left: 10px;
-=======
-  left: 0;
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   transition: ease-in 0.5s;
 }
 .tagline {
@@ -595,18 +571,12 @@ iframe{
   color: white;
   position: absolute;
   bottom: 2px;
-<<<<<<< HEAD
   font-size: 80%;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 300;
   z-index: 1;
   left: 15px;
-=======
-  font-size: 13px;
-  background-color: rgb(0, 0, 0, 0.4);
-  font-weight: 600;
-  z-index: 1;
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
+
 }
 #rating {
   position: absolute;
@@ -616,10 +586,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(67, 107, 230, 0.9);
   border-radius: 3px;
   padding: 5px;
-<<<<<<< HEAD
   left: 15px;
-=======
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
 }
 #movie > img {
   height: 100%;
@@ -631,12 +598,6 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media (max-width: 1200px) {
-<<<<<<< HEAD
-  body{
-    margin: auto;
-  }
-=======
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   #search-list {
     width: 400px;
     z-index: 1000;
@@ -646,26 +607,23 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   .menu {
     grid-template-columns: repeat(5, auto);
   }
-
-
 }
-@media (min-width: 990px){
-  #dropdown{
+@media (min-width: 990px) {
+  #dropdown {
     display: flex;
     justify-content: right;
   }
- }
+}
 
-@media (max-width: 975px){
+@media (max-width: 975px) {
   .menu {
     width: fit-content;
     grid-template-columns: repeat(5, auto);
   }
 
-  .nav-icons{
+  .nav-icons {
     display: none;
   }
-
 }
 
 @media (max-width: 935px) {
@@ -687,7 +645,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 }
 @media (max-width: 474px) {
-  .page-text{
+  .page-text {
     display: none;
   }
   .menu {
@@ -758,7 +716,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 300;
 }
 .hytPlayerWrap.ended::after {
-  content:"";
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -767,12 +725,12 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   cursor: pointer;
   background-color: black;
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
   background-size: 64px 64px;
   background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==);
 }
 .hytPlayerWrap.paused::after {
-  content:"";
+  content: "";
   position: absolute;
   top: 70px;
   left: 0;
@@ -781,7 +739,7 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   cursor: pointer;
   background-color: black;
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
   background-size: 40px 40px;
   background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
 }
@@ -825,5 +783,3 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(0, 0, 0, 0.4);
 }
-
-

@@ -1,15 +1,10 @@
 <div class="menu">
     <% for(var i = 0; i < movies.length; i++) { %>
       <div id="menu-cont">
-<<<<<<< HEAD
-        <a href="<%= "/movies/m/" + movies[i].id + "/" + encodeURIComponent(movies[i].title)%> " id="movie"><img src="<%= "https://image.tmdb.org/t/p/original/" + movies[i].poster_path %>" alt="">
-        <p id="rating">IMDb <%= movies[i].vote_average.toFixed(1) %></> 
-        <p id="title"><%= movies[i].title %> </p>
-=======
         <a href="<%= "/movies/m/" + movies[i].id + "/" + encodeURIComponent(movies[i].title) %> " id="movie"><img src="<%= "https://image.tmdb.org/t/p/original/" + movies[i].poster_path %>" alt="">
         <div id="rating">IMDb <%= movies[i].vote_average.toFixed(1) %></div> 
         <div id="title"><%= movies[i].title %> </div>
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
+
         <div class="shadow">
           <% function date(a) {%> 
             <%var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]%>

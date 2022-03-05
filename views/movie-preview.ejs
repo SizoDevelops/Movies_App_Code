@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include( "include/head.ejs") %> 
-<<<<<<< HEAD
 <body class="bg-black m-preview" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
-=======
-<body class="bg-black" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   <%- include ('include/movies_nav.ejs') %> 
     <div class="view-menu">
         <div class="main">
@@ -19,11 +15,7 @@
              <small class="text-light mx-3" id="gen"><%= r.join(", ")  %> </small>
              <% }%> 
                   
-<<<<<<< HEAD
                 <ul class="details w-auto border-bottom">
-=======
-                <ul class="details">
->>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
                     <li class="" title="Title" id="movieName" ><%= movie.title.slice(0, 4) + "..." %> </li>
                   
                     <% function date(a) {%> 
@@ -75,7 +67,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink" id="cast">
                          
                           <% for(var i = 0; i < cast.length; i++) { %>
-                              <li><a class="dropdown-item" href="<%= "/movies/cast/" + cast[i].id + "/" + cast[i].original_name.replace(" ", "-") %>"> <% if (cast[i].profile_path != null) { %>
+                              <li><a class="dropdown-item" href="<%= "/movies/cast/" + cast[i].id + "/" + encodeURIComponent(cast[i].original_name)%>"> <% if (cast[i].profile_path != null) { %>
                                 <img src="<%= "https://image.tmdb.org/t/p/original/" + cast[i].profile_path  %>" alt="">
                                 <%} else { %>
                                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbjFtn7g1L8x0Kt5f7bSqLWqAggTkqLbtaVw&usqp=CAU" alt="">
