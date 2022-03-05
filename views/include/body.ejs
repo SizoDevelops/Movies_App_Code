@@ -1,7 +1,7 @@
 <div class="menu">
     <% for(var i = 0; i < movies.length; i++) { %>
       <div id="menu-cont">
-        <a href="<%= "/movies/m/" + movies[i].id + "/" + movies[i].title.replace("-", "").split(" ").join("-") %> " id="movie"><img src="<%= "https://image.tmdb.org/t/p/original/" + movies[i].poster_path %>" alt="">
+        <a href="<%= "/movies/m/" + movies[i].id + "/" + encodeURIComponent(movies[i].title) %> " id="movie"><img src="<%= "https://image.tmdb.org/t/p/original/" + movies[i].poster_path %>" alt="">
         <div id="rating">IMDb <%= movies[i].vote_average.toFixed(1) %></div> 
         <div id="title"><%= movies[i].title %> </div>
         <div class="shadow">

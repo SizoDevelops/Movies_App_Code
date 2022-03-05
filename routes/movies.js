@@ -6,6 +6,7 @@ movies_router.use(express.static(__dirname));
 const BASE_URL = process.env.BASE_URL;
 const API_KEY = process.env.API_KEY;
 var filter;
+
 function Genres(req, res, next) {
     fetchMovieData.fetchGenres(BASE_URL, API_KEY) 
     .then((data) => {
@@ -43,7 +44,7 @@ movies_router.get("/:page?", (req, res) => {
 });
 
 //..................................
-movies_router.get("/year/:year(20[12][0-9])/:page?", (req, res) => {
+movies_router.get("/movies/year/:year(20[12][0-9])/:page?", (req, res) => {
   if(!req.params.page) {
     req.params.page = 1
   }
@@ -75,7 +76,7 @@ movies_router.get("/year/:year(20[12][0-9])/:page?", (req, res) => {
 });
 //..................................
 
-movies_router.get("/genres/:genre/:page?", async (req, res) => {
+movies_router.get("/movies/genres/:genre/:page?", async (req, res) => {
   var selected;
   if(!req.params.page) {
     req.params.page = 1
@@ -117,7 +118,7 @@ movies_router.get("/genres/:genre/:page?", async (req, res) => {
 
 // // ........................................
 
-movies_router.get("/cast/:id/:name?", (req, res) => {
+movies_router.get("/movies/cast/:id/:name?", (req, res) => {
 
   fetchMovieData.getCast(BASE_URL, req.params.name, API_KEY)
     .then(async (data) => {
@@ -151,7 +152,7 @@ movies_router.get("/cast/:id/:name?", (req, res) => {
 
 //..............................
 
-movies_router.get("/film/trending-today", async (req, res) => {
+movies_router.get("/movies/film/trending-today", async (req, res) => {
 
   fetchMovieData.getTrending(BASE_URL, "day", API_KEY)
     .then((data) => {
@@ -171,7 +172,7 @@ movies_router.get("/film/trending-today", async (req, res) => {
 
 });
 //...............
-movies_router.get("/film/top-rated/:page?", async (req, res) => {
+movies_router.get("/movies/film/top-rated/:page?", async (req, res) => {
   if(!req.params.page) {
     req.params.page = 1
   }
@@ -198,7 +199,7 @@ movies_router.get("/film/top-rated/:page?", async (req, res) => {
 
 });
 //................................
-movies_router.get("/film/now-playing/:page?", async (req, res) => {
+movies_router.get("/movies/film/now-playing/:page?", async (req, res) => {
   if(!req.params.page) {
     req.params.page = 1
   }
@@ -227,7 +228,7 @@ movies_router.get("/film/now-playing/:page?", async (req, res) => {
 });
 // // ...........................................
 
-movies_router.get("/film/trending-this-week", async (req, res) => {
+movies_router.get("/movies/film/trending-this-week", async (req, res) => {
   fetchMovieData.getTrending(BASE_URL, "week", API_KEY)
     .then((movies) => {
       let trendingThisWeek = movies.results.filter(movies => movies.poster_path);
@@ -248,7 +249,7 @@ movies_router.get("/film/trending-this-week", async (req, res) => {
 
 // // .................................
 
-movies_router.get("/film/search/q=:movie/:page?", async (req, res) => {
+movies_router.get("/movies/film/search/q=:movie/:page?", async (req, res) => {
     fetchMovieData.getSearchResults(BASE_URL, API_KEY, req.params.movie, req.params.page)
     .then(movies => {
      let numberOfPages = movies.total_pages;
@@ -288,7 +289,7 @@ movies_router.get("/film/search/q=:movie/:page?", async (req, res) => {
 
 // ....................................................
 
-movies_router.get("/m/:movie/:movies?", async (req, res) => {
+movies_router.get("/movies/m/:movie/:movies?", async (req, res) => {
 
   fetchMovieData.returnMovie(BASE_URL, req.params.movie, API_KEY)
     .then(async movies => { 
@@ -323,12 +324,10 @@ movies_router.get("/m/:movie/:movies?", async (req, res) => {
     });
 });
 
+
 movies_router.use((req, res, next) => {
-res.status(404);
-res.render("error", {genre: filter,url: req.originalUrl.slice(
-  0,
-  req.originalUrl.lastIndexOf(req.params.page)
-) })
-})
+   res.status(404)
+  res.render("error")
+  })
 
 module.exports = movies_router;
