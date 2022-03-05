@@ -172,8 +172,10 @@ iframe{
 .details {
   color: white;
   line-height: 60px;
-  margin: 20px;
   font-size: 14px;
+  width: 100%;
+  padding: 5px;
+ position: relative;
 }
 .view-menu {
   height: 100%;
@@ -405,7 +407,7 @@ iframe{
   .details {
     display: inline-flex;
     justify-content: space-evenly;
-    margin-left: -60px;
+ 
     font-size: 10px;
     cursor: pointer;
     color: rgb(183, 188, 192);
@@ -479,7 +481,6 @@ iframe{
   .poster {
     width: 100%;
   }
-
 }
 
 #menu-cont {
@@ -510,6 +511,11 @@ iframe{
 #movie {
   height: 200px;
   width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
   display: inline-block;
 }
 .shadow {
@@ -522,7 +528,6 @@ iframe{
   color: rgb(255, 254, 251);
   text-decoration: underline;
   font-weight: 200;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 #movie:hover .shadow > p {
   display: block;
@@ -531,10 +536,10 @@ iframe{
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
-  left: 10px;
-  transition: ease-in 500ms;
+  left: 0;
+  transition: ease-in 0.5s;
 }
 .tagline {
   font-size: 15px;
@@ -557,11 +562,10 @@ iframe{
   color: white;
   position: absolute;
   bottom: 2px;
-  font-size: 80%;
-  font-weight: 400;
+  font-size: 13px;
+  background-color: rgb(0, 0, 0, 0.4);
+  font-weight: 600;
   z-index: 1;
-  left: 15px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 #rating {
   position: absolute;
@@ -571,7 +575,6 @@ iframe{
   background-color: rgba(67, 107, 230, 0.9);
   border-radius: 3px;
   padding: 5px;
-  left: 20px;
 }
 #movie > img {
   height: 100%;
