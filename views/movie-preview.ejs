@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include( "include/head.ejs") %> 
+<<<<<<< HEAD
 <body class="bg-black m-preview" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
+=======
+<body class="bg-black" id="preview" style="background-image: url('<%= movie.backdrop_path ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original/${movie.poster_path}` %>');">
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   <%- include ('include/movies_nav.ejs') %> 
     <div class="view-menu">
         <div class="main">
@@ -15,7 +19,11 @@
              <small class="text-light mx-3" id="gen"><%= r.join(", ")  %> </small>
              <% }%> 
                   
+<<<<<<< HEAD
                 <ul class="details w-auto border-bottom">
+=======
+                <ul class="details">
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
                     <li class="" title="Title" id="movieName" ><%= movie.title.slice(0, 4) + "..." %> </li>
                   
                     <% function date(a) {%> 

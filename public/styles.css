@@ -10,6 +10,7 @@
 
 
 body {
+<<<<<<< HEAD
   width: min(1440px, 100vw);
   height: fit-content;
   background-color: black;
@@ -24,6 +25,13 @@ body {
 }
 nav {
   height: 120px;
+=======
+  width: 100vw;
+  height: fit-content;
+  background-color: black;
+}
+nav {
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   border-bottom: 1px solid rgb(0, 78, 122);
 }
 
@@ -189,7 +197,11 @@ iframe{
 .view-menu {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.83);
+<<<<<<< HEAD
   width: 100%;
+=======
+  width: 100vw;
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   overflow-x: hidden;
 }
 #search-icon {
@@ -276,7 +288,11 @@ iframe{
 }
 
 .main {
+<<<<<<< HEAD
   width: 100%;
+=======
+  width: 100vw;
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   display: inline-flex;
   margin: auto;
   height: fit-content;
@@ -540,7 +556,10 @@ iframe{
 }
 #movie:hover .shadow > p {
   display: block;
+<<<<<<< HEAD
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+=======
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
 }
 #movie:hover .shadow {
   position: absolute;
@@ -548,7 +567,11 @@ iframe{
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
+<<<<<<< HEAD
   left: 10px;
+=======
+  left: 0;
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   transition: ease-in 0.5s;
 }
 .tagline {
@@ -572,11 +595,18 @@ iframe{
   color: white;
   position: absolute;
   bottom: 2px;
+<<<<<<< HEAD
   font-size: 80%;
 font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 300;
   z-index: 1;
   left: 15px;
+=======
+  font-size: 13px;
+  background-color: rgb(0, 0, 0, 0.4);
+  font-weight: 600;
+  z-index: 1;
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
 }
 #rating {
   position: absolute;
@@ -586,7 +616,10 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: rgba(67, 107, 230, 0.9);
   border-radius: 3px;
   padding: 5px;
+<<<<<<< HEAD
   left: 15px;
+=======
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
 }
 #movie > img {
   height: 100%;
@@ -598,9 +631,12 @@ font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @media (max-width: 1200px) {
+<<<<<<< HEAD
   body{
     margin: auto;
   }
+=======
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
   #search-list {
     width: 400px;
     z-index: 1000;

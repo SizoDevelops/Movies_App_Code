@@ -4,4 +4,9 @@ public/seriesStyles.css
 # DotEnv File
 .env
 # Dependency directories
+<<<<<<< HEAD
 /node_modules
+=======
+/node_modules
+/movie-previews
+>>>>>>> b23b80c32318cd53c425c20331eec83e71124d86
